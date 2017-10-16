@@ -14,12 +14,12 @@ import mygene
 import math
 
 
-def load_slowkow(filename_list=['./slowkow_databases/TRED_TF.txt',
-                                './slowkow_databases/ITFP_TF.txt',
-                                './slowkow_databases/ENCODE_TF.txt',
-                                './slowkow_databases/Neph2012_TF.txt',
-                                './slowkow_databases/TRRUST_TF.txt',
-                                './slowkow_databases/Marbach2016_TF.txt']):
+def load_slowkow(filename_list=['../../slowkow_databases/TRED_TF.txt',
+                                '../../slowkow_databases/ITFP_TF.txt',
+                                '../../slowkow_databases/ENCODE_TF.txt',
+                                '../../slowkow_databases/Neph2012_TF.txt',
+                                '../../slowkow_databases/TRRUST_TF.txt',
+                                '../../slowkow_databases/Marbach2016_TF.txt']):
 
     # read files formatted as \n separated items
     return_list = []
@@ -45,14 +45,14 @@ def load_jaspar(filename):
 
 
 def create_TF_list(slowkow_bool=True,
-                       slowkow_files=['./slowkow_databases/TRED_TF.txt',
-                                      './slowkow_databases/ITFP_TF.txt',
-                                      './slowkow_databases/ENCODE_TF.txt',
-                                      './slowkow_databases/Neph2012_TF.txt',
-                                      './slowkow_databases/TRRUST_TF.txt',
-                                      './slowkow_databases/Marbach2016_TF.txt'],
+                       slowkow_files=['../../slowkow_databases/TRED_TF.txt',
+                                      '../../slowkow_databases/ITFP_TF.txt',
+                                      '../../slowkow_databases/ENCODE_TF.txt',
+                                      '../../slowkow_databases/Neph2012_TF.txt',
+                                      '../../slowkow_databases/TRRUST_TF.txt',
+                                      '../../slowkow_databases/Marbach2016_TF.txt'],
                        jaspar_bool=True,
-                       jaspar_file="jaspar_genereg_matrix.txt"):
+                       jaspar_file="../../jaspar_genereg_matrix.txt"):
 
     TF_list = []
 
@@ -67,7 +67,7 @@ def create_TF_list(slowkow_bool=True,
     return list(set(TF_list))
 
 
-def load_and_process_STRING(filename="STRING_network.xlsx"):
+def load_and_process_STRING(filename="../../STRING_network.xlsx"):
     # Load STRING database as background network
     STRING_DF = pd.read_excel(filename)
 
@@ -119,7 +119,7 @@ def make_digraph(db_edges, db_sign_att, TF_list):
     return DG
 
 
-def load_DEG_with_up_downs(filename="differencially_expressed_genes.txt", filter_value=0.3):
+def load_DEG_with_up_downs(filename="../../differencially_expressed_genes.txt", filter_value=0.3):
     # load differencially expressed genes (experimental results)
     DEG_db = pd.read_csv(filename, sep="\t")
 
