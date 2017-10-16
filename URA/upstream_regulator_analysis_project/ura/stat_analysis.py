@@ -12,6 +12,21 @@ import math
 
 
 def tr_pvalues(DG, background_list, DEG_list):
+
+    """
+        Calculates a log of a p-value for every transcription factor in the graph. These values determine
+        how statistically likely it that a specific transcription factor is randomly associated with the set
+        of differentially expressed genes found to have been associated with it in practice.
+
+        Args:
+            DG: A directed networkX graph with edges mapping from transcription factors to expressed genes
+            background_list: list of all genes in your experiment's universe
+            DEG_list: your list of differencially expressed genes
+
+        Returns: A dictionary that maps a transcription factor's gene symbol to its calculated p-vlaue log.
+
+    """
+
     source_nodes = list(set(zip(*DG.edges())[0]))  # identifying unique source nodes in graph
 
     TR_to_pvalue = {}
